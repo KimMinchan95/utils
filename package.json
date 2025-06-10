@@ -1,0 +1,21 @@
+{
+  "name": "@kimminchan/utils",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run build:ts",
+    "build:ts": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "util"
+  ],
+  "author": "kimminchan",
+  "license": "MIT",
+  "description": "util 함수",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.3"
+  }
+}
