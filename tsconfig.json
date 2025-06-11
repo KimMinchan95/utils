@@ -1,11 +1,25 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
-    "lib": ["es5", "es6", "dom"],
-    "declaration": true,
-    "outDir": "dist",
-    "strict": true
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["index.ts"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
