@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "prepack": "npm run test && npm run build",
-    "build": "npm run build:ts",
-    "build:ts": "tsc",
+    "prevbuild": "npm run test",
+    "build": "vite build",
     "test": "vitest"
   },
   "keywords": [
@@ -15,6 +15,9 @@
   "author": "kimminchan",
   "license": "MIT",
   "description": "util 함수",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.8.3",
