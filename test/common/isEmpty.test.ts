@@ -1,5 +1,6 @@
 import { isEmpty } from '@/index';
 import { describe, it, expect } from 'vitest';
+import { faker } from '@faker-js/faker';
 
 describe('isEmpty 함수', () => {
   describe('문자열 처리', () => {
@@ -12,7 +13,7 @@ describe('isEmpty 함수', () => {
     });
 
     it('공백 문자열을 받으면 false를 반환', () => {
-      const value = ' ';
+      const value = faker.string.sample();
 
       const result = isEmpty(value);
 
@@ -20,7 +21,7 @@ describe('isEmpty 함수', () => {
     });
 
     it('일반 문자열을 받으면 false를 반환', () => {
-      const value = 'hello';
+      const value = faker.lorem.word();
 
       const result = isEmpty(value);
 
@@ -38,7 +39,11 @@ describe('isEmpty 함수', () => {
     });
 
     it('요소가 있는 배열을 받으면 false를 반환', () => {
-      const value = [1, 2, 3];
+      const value = [
+        faker.number.int(),
+        faker.string.sample(),
+        faker.datatype.boolean(),
+      ];
 
       const result = isEmpty(value);
 
@@ -64,7 +69,11 @@ describe('isEmpty 함수', () => {
     });
 
     it('속성이 있는 객체를 받으면 false를 반환', () => {
-      const value = { key: 'value' };
+      const value = {
+        name: faker.person.fullName(),
+        email: faker.internet.email(),
+        age: faker.number.int({ min: 18, max: 80 }),
+      };
 
       const result = isEmpty(value);
 
@@ -72,7 +81,10 @@ describe('isEmpty 함수', () => {
     });
 
     it('undefined 값이 있는 객체를 받으면 false를 반환', () => {
-      const value = { key: undefined };
+      const value = {
+        name: faker.person.fullName(),
+        email: undefined,
+      };
 
       const result = isEmpty(value);
 
@@ -114,11 +126,19 @@ describe('isEmpty 함수', () => {
 
       expect(result).toBe(false);
     });
+
+    it('랜덤 숫자를 받으면 false를 반환', () => {
+      const value = faker.number.int();
+
+      const result = isEmpty(value);
+
+      expect(result).toBe(false);
+    });
   });
 
   describe('기타 타입 처리', () => {
     it('boolean 값을 받으면 false를 반환', () => {
-      const value = false;
+      const value = faker.datatype.boolean();
 
       const result = isEmpty(value);
 
@@ -126,7 +146,7 @@ describe('isEmpty 함수', () => {
     });
 
     it('함수를 받으면 false를 반환', () => {
-      const value = () => {};
+      const value = () => faker.string.sample();
 
       const result = isEmpty(value);
 
