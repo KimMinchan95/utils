@@ -1,3 +1,8 @@
+/**
+ * 이메일 주소가 유효한지 검증하는 함수
+ * @param email - 검증할 이메일 주소
+ * @returns 이메일이 유효하면 true, 그렇지 않으면 false
+ */
 export const isValidEmail = (email: string): boolean => {
   if (!email || typeof email !== 'string') {
     return false;
